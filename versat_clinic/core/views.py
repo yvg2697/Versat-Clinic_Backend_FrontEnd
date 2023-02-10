@@ -2,4 +2,4 @@ from django.shortcuts import render
 
 # Create your views here.
 def front(request):
-    return render(request, "vite.svg")
+    return render(request, "index.html")

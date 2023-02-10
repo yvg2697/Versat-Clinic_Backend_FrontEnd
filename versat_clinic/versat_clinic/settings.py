@@ -118,14 +118,32 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend', 'dist', 'assets')]
+# These are the settings you should have for everything to work properly.
+# Add these to your main settings.py file, or modify it accordingly.
+
+# Needed for production. Avoid using '*'.
+ALLOWED_HOSTS = ['*']
+
+# Needed for 'debug' to be available inside templates.
+# https://docs.djangoproject.com/en/3.2/ref/templates/api/#django-template-context-processors-debug
+INTERNAL_IPS = ['127.0.0.1']
+
+# Vite App Dir: point it to the folder your vite app is in.
+VITE_APP_DIR = REAL_BASE_DIR / "frontend/src/" # a ver si sirve con el base
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+# You may change these, but it's important that the dist folder is includedself.
+# If it's not, collectstatic won't copy your bundle to production.
+
+STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
-    REAL_BASE_DIR / 'frontend/dist/assets',
+    VITE_APP_DIR / "dist",
 ]
 
-
+STATIC_ROOT = REAL_BASE_DIR / "staticfiles"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 

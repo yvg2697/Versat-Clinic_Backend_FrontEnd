@@ -15,10 +15,23 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include, re_path
+from django.conf import settings
+from django.views.static import serve
 from core.views import front
+from django.views.generic import TemplateView
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     # path("", front, name="front"),
+  
+#     path("", TemplateView.as_view(template_name='index.html')),
+#     # TemplateView.as_view(template_name='frontend/index.html'))
+# ]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", front, name="front"),
+    # path("", front, name="front"),
+    re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}), # only test not production
+    re_path(r"^.*$",TemplateView.as_view (template_name="base.html")),
 ]
