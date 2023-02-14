@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core', 
+    'core',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -129,7 +130,7 @@ ALLOWED_HOSTS = ['*']
 INTERNAL_IPS = ['127.0.0.1']
 
 # Vite App Dir: point it to the folder your vite app is in.
-VITE_APP_DIR = REAL_BASE_DIR / "frontend/src/" # a ver si sirve con el base
+VITE_APP_DIR = REAL_BASE_DIR / "frontend/src/"  # a ver si sirve con el base
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
