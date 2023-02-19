@@ -43,6 +43,7 @@ BASE_APPS = [
 
 LOCAL_APPS = [
     'core',
+    'apps.users',
 ]
 
 THIRD_APPS = [
@@ -63,6 +64,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+TOKEN_EXPIRED_AFTER_SECONDS = 86400
 
 ROOT_URLCONF = 'versat_clinic.urls'
 
@@ -126,6 +129,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = 'users.User'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
