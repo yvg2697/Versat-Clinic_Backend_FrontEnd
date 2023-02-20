@@ -46,6 +46,7 @@ LOCAL_APPS = [
     'apps.users',
     'apps.base',
     'apps.trabajador',
+    'apps.paciente',
 ]
 
 THIRD_APPS = [
