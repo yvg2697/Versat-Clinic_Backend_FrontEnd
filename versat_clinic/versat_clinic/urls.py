@@ -20,6 +20,7 @@ from django.conf import settings
 from django.views.static import serve
 from core.views import front
 from django.views.generic import TemplateView
+from apps.users.views import Login, Logout
 
 # urlpatterns = [
 #     path('admin/', admin.site.urls),
@@ -34,4 +35,9 @@ urlpatterns = [
     # path("", front, name="front"),
     re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}), # only test not production
     re_path(r"^.*$",TemplateView.as_view (template_name="base.html")),
+    path('user/', include('apps.users.api.urls')),
+    path('', Login.as_view(), name='Login'),
+    path('logout/', Logout.as_view(), name='Logout'),
+    path('trabajador/', include('apps.trabajador.api.urls')),
+    path('paciente/', include('apps.paciente.api.urls')),
 ]

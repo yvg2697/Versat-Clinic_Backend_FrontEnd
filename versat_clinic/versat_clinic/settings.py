@@ -32,16 +32,31 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+BASE_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
-    'rest_framework',
 ]
+
+LOCAL_APPS = [
+    'core',
+    'apps.users',
+    'apps.base',
+    'apps.trabajador',
+    'apps.paciente',
+]
+
+THIRD_APPS = [
+    'rest_framework',
+    'rest_framework.authtoken',
+    'simple_history',
+    'drf_yasg',
+]
+
+INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,6 +67,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+TOKEN_EXPIRED_AFTER_SECONDS = 86400
 
 ROOT_URLCONF = 'versat_clinic.urls'
 
@@ -115,6 +132,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = 'users.User'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
