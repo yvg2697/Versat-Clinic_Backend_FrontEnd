@@ -2,7 +2,7 @@ from datetime import timedelta
 from django.utils import timezone
 from django.conf import settings
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.exceptions import AuthenticationFailed
+
 
 class ExpiringTokenAuthentication(TokenAuthentication):
     expired = False
@@ -42,4 +42,4 @@ class ExpiringTokenAuthentication(TokenAuthentication):
             is_expired = self.token_expire_handler(token)
             if is_expired:
                 message = 'Su Token ha expirado.'
-        return (user, token, message, self.expired)
+        return user, token, message, self.expired

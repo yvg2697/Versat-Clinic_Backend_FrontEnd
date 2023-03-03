@@ -18,9 +18,9 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf import settings
 from django.views.static import serve
-from core.views import front
+from versat_clinic.core.views import front
 from django.views.generic import TemplateView
-from apps.users.views import Login, Logout
+from versat_clinic.apps.users.views import Login, Logout
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -28,22 +28,22 @@ from drf_yasg import openapi
 # urlpatterns = [
 #     path('admin/', admin.site.urls),
 #     # path("", front, name="front"),
-  
+
 #     path("", TemplateView.as_view(template_name='index.html')),
 #     # TemplateView.as_view(template_name='frontend/index.html'))
 # ]
 
 schema_view = get_schema_view(
-   openapi.Info(
-      title="API Clínica",
-      default_version='v1',
-      description="Documentación para la API Versat-Clínica",
-      terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="contact@snippets.local"),
-      license=openapi.License(name="BSD License"),
-   ),
-   public=True,
-   permission_classes=[permissions.AllowAny],
+    openapi.Info(
+        title="API Clínica",
+        default_version='v1',
+        description="Documentación para la API Versat-Clínica",
+        terms_of_service="https://www.google.com/policies/terms/",
+        contact=openapi.Contact(email="contact@snippets.local"),
+        license=openapi.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=[permissions.AllowAny],
 )
 
 urlpatterns = [
@@ -52,8 +52,8 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
     # path("", front, name="front"),
-    re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}), # only test not production
-    re_path(r"^.*$",TemplateView.as_view (template_name="base.html")),
+    re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),  # only test not production
+    re_path(r"^.*$", TemplateView.as_view(template_name="base.html")),
     path('user/', include('apps.users.api.urls')),
     path('', Login.as_view(), name='Login'),
     path('logout/', Logout.as_view(), name='Logout'),

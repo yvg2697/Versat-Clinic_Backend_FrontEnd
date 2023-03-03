@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Sexo(models.Model):
     id = models.AutoField(primary_key=True)
@@ -45,4 +46,4 @@ class BaseModel(models.Model):
         verbose_name = 'Modelo Base'
         verbose_name_plural = 'Modelos Base'
 
-    REQUIRED_FIELDS = ['nombre','apellidos', 'municipio', 'provincia', 'pais', 'direccion', 'raza', 'sexo']
+    REQUIRED_FIELDS = ['nombre', 'apellidos', 'municipio', 'provincia', 'pais', 'direccion', 'raza', 'sexo']
