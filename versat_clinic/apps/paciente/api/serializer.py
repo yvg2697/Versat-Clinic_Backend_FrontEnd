@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from versat_clinic.apps.paciente.models import Paciente
+from apps.paciente.models import Paciente
 
 
 class PacienteSerializer(serializers.ModelSerializer):

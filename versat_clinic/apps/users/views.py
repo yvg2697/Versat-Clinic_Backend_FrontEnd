@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from django.contrib.sessions.models import Session
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
-from versat_clinic.apps.users.api.serializer import UserTokenSerializer
+from apps.users.api.serializer import UserTokenSerializer
 
 
 class UserToken(APIView):

@@ -1,6 +1,6 @@
 from rest_framework.routers import DefaultRouter
 
-from versat_clinic.apps.paciente.api.paciente_viewset import PacienteViewSet
+from apps.paciente.api.paciente_viewset import PacienteViewSet
 
 router = DefaultRouter()
 

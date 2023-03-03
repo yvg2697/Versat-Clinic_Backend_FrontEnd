@@ -1,7 +1,7 @@
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 
-from versat_clinic.apps.trabajador.api.serializer import TrabajadorSerializer
+from apps.trabajador.api.serializer import TrabajadorSerializer
 
 
 class TrabajadorViewSet(viewsets.ModelViewSet):

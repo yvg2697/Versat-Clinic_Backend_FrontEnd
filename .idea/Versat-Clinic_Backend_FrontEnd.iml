@@ -13,7 +13,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$/versat_clinic" />
     <orderEntry type="jdk" jdkName="Python 3.8 (Versat-Clinic_Backend_FrontEnd)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

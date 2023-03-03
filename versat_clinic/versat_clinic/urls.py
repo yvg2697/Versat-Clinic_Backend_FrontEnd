@@ -18,9 +18,9 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf import settings
 from django.views.static import serve
-from versat_clinic.core.views import front
+from core.views import front
 from django.views.generic import TemplateView
-from versat_clinic.apps.users.views import Login, Logout
+from apps.users.views import Login, Logout
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi

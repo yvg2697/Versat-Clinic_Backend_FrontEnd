@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from versat_clinic.apps.users.models import User
+from apps.users.models import User
 
 
 class UserSerializer(serializers.ModelSerializer):

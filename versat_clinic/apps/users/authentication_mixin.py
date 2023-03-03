@@ -1,6 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.authentication import get_authorization_header
-from versat_clinic.apps.users.authentication import ExpiringTokenAuthentication
+from apps.users.authentication import ExpiringTokenAuthentication
 from rest_framework.renderers import JSONRenderer
 from rest_framework import status
 
