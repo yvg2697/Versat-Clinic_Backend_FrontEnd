@@ -1,5 +1,6 @@
 from rest_framework.routers import DefaultRouter
-from apps.trabajador.api.trabajador_viewset import TrabajadorViewSet
+
+from versat_clinic.apps.trabajador.api.trabajador_viewset import TrabajadorViewSet
 
 router = DefaultRouter()
 

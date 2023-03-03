@@ -1,5 +1,6 @@
 from django.db import models
-from apps.base.models import BaseModel
+from versat_clinic.apps.base.models import BaseModel
+
 
 # Create your models here.
 class Diagnostico(models.Model):
@@ -13,6 +14,7 @@ class Diagnostico(models.Model):
 
     def __str__(self):
         return f'{self.diagnostico}'
+
 
 class APP(models.Model):
     id = models.AutoField(primary_key=True)
@@ -43,7 +45,8 @@ class Sala(models.Model):
 class Paciente(BaseModel, models.Model):
     cama = models.CharField('Cama', max_length=255, null=True, blank=False)
     sala = models.ForeignKey('Sala', on_delete=models.CASCADE, verbose_name='Sala', null=True, blank=False)
-    diagnostico = models.ForeignKey('Diagnostico', on_delete=models.CASCADE, verbose_name='Diagnóstico', null=False, blank=False)
+    diagnostico = models.ForeignKey('Diagnostico', on_delete=models.CASCADE, verbose_name='Diagnóstico', null=False,
+                                    blank=False)
     app = models.ForeignKey('APP', on_delete=models.CASCADE, verbose_name='APP', null=False, blank=False)
 
     class Meta:

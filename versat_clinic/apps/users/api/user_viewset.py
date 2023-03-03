@@ -1,7 +1,9 @@
 from rest_framework import status, viewsets
 from rest_framework.response import Response
-from apps.users.api.serializer import UserSerializer
-from apps.users.authentication_mixin import Authentication
+from versat_clinic.apps.users.authentication_mixin import Authentication
+
+from versat_clinic.apps.users.api.serializer import UserSerializer
+
 
 class UserViewSet(Authentication, viewsets.ModelViewSet):
     serializer_class = UserSerializer

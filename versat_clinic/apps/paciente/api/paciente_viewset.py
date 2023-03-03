@@ -1,6 +1,8 @@
 from rest_framework import status, viewsets
 from rest_framework.response import Response
-from apps.paciente.api.serializer import PacienteSerializer
+
+from versat_clinic.apps.paciente.api.serializer import PacienteSerializer
+
 
 class PacienteViewSet(viewsets.ModelViewSet):
     serializer_class = PacienteSerializer

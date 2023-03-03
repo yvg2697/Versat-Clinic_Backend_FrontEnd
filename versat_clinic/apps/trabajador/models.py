@@ -1,5 +1,6 @@
 from django.db import models
-from apps.base.models import BaseModel
+from versat_clinic.apps.base.models import BaseModel
+
 
 class Categoria_Ocupacional(models.Model):
     id = models.AutoField(primary_key=True)
@@ -29,8 +30,10 @@ class Grado_Cientifico(models.Model):
 
 class Trabajador(BaseModel):
     local = models.CharField('Local de trabajo', max_length=255, null=True, blank=False)
-    categoria_ocupacional = models.ForeignKey(Categoria_Ocupacional, on_delete=models.CASCADE, verbose_name='Categoría ocupacional', null=False, blank=False)
-    grado_cientifico = models.ForeignKey(Grado_Cientifico, on_delete=models.CASCADE, verbose_name='Grado científico', null=False, blank=False)
+    categoria_ocupacional = models.ForeignKey(Categoria_Ocupacional, on_delete=models.CASCADE,
+                                              verbose_name='Categoría ocupacional', null=False, blank=False)
+    grado_cientifico = models.ForeignKey(Grado_Cientifico, on_delete=models.CASCADE, verbose_name='Grado científico',
+                                         null=False, blank=False)
 
     class Meta:
         verbose_name = 'Trabajador'
