@@ -7,11 +7,13 @@ from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
 from apps.users.api.serializer import UserTokenSerializer
 
+
 class UserToken(APIView):
     def get(self, request, *args, **kwargs):
         username = request.GET.get('username')
         try:
-            user_token = Token.objects.get(user=UserTokenSerializer().Meta.model.objects.filter(username=username).first())
+            user_token = Token.objects.get(
+                user=UserTokenSerializer().Meta.model.objects.filter(username=username).first())
             return Response({
                 'token': user_token.key
             })
@@ -19,6 +21,7 @@ class UserToken(APIView):
             return Response({
                 'error': 'Credenciales enviadas de forma incorrecta.'
             }, status=status.HTTP_400_BAD_REQUEST)
+
 
 class Login(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
@@ -46,7 +49,6 @@ class Login(ObtainAuthToken):
                 return Response({'error': 'Usuario no puede iniciar sesión.'}, status=status.HTTP_401_UNAUTHORIZED)
         else:
             return Response({'error': 'Usuario o contraseña incorrectos.'}, status=status.HTTP_400_BAD_REQUEST)
-        return Response({'message': 'Hola desde Response'}, status=status.HTTP_200_OK)
 
 
 class Logout(APIView):
@@ -57,7 +59,7 @@ class Logout(APIView):
 
             if token:
                 user = token.user
-                all_sessions = Session.objects.filter(expire_date__gte = datetime.now())
+                all_sessions = Session.objects.filter(expire_date__gte=datetime.now())
                 if all_sessions.exists():
                     for session in all_sessions:
                         session_data = session.get_decoded()
