@@ -25,7 +25,7 @@ REAL_BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = 'django-insecure-jd=c0kgovq9am^)7#mq*(7$ue+2j+uh(_7401b+dk@4+$ce(%+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -83,6 +83,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+            'builtins': [
+                'core.templatetags.render_vite_bundle'
             ],
         },
     },
@@ -148,7 +151,7 @@ ALLOWED_HOSTS = ['*']
 INTERNAL_IPS = ['127.0.0.1']
 
 # Vite App Dir: point it to the folder your vite app is in.
-VITE_APP_DIR = REAL_BASE_DIR / "frontend/src/"  # a ver si sirve con el base
+VITE_APP_DIR = BASE_DIR / "../frontend/src"  # a ver si sirve con el base
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -159,10 +162,10 @@ VITE_APP_DIR = REAL_BASE_DIR / "frontend/src/"  # a ver si sirve con el base
 STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
-    VITE_APP_DIR / "dist",
+    "../frontend/src/dist",
 ]
 
-STATIC_ROOT = REAL_BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
