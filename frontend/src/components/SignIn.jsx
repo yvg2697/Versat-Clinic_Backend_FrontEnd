@@ -32,7 +32,7 @@ export default function SignIn() {
       type: types.sign_up,
     };
     dispatch(action);
-    navigate("/sign_up", {
+    navigate("/versat-clinic/sign_up", {
       replace: true,
     });
   };
@@ -53,7 +53,7 @@ export default function SignIn() {
     };
 
     dispatch(action);
-    navigate("/dashboard", {
+    navigate("/versat-clinic/dashboard", {
       replace: true,
     });
   };

@@ -5,6 +5,6 @@ import { Navigate } from "react-router-dom";
 export const PrivateRouter = ({ children }) => {
   const { user } = useContext(AuthContext);
 
-  return user.logged ? children : <Navigate to="/login" />;
+  return user.logged ? children : <Navigate to="/versat-clinic/login" />;
 };
 

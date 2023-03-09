@@ -53,7 +53,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path("", front, name="front"),
     re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),  # only test not production
-    re_path(r"^.*$", TemplateView.as_view(template_name="base.html")),
+    re_path(r"^versat-clinic.*$", TemplateView.as_view(template_name="base.html")),
     path('user/', include('apps.users.api.urls')),
     path('', Login.as_view(), name='Login'),
     path('logout/', Logout.as_view(), name='Logout'),
