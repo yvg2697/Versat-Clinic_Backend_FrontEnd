@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 from simple_history.models import HistoricalRecords
 
+
 class UserManager(BaseUserManager):
     def _create_user(self, username, email, name, last_name, password, is_staff, is_superuser, **extra_fields):
         user = self.model(
@@ -17,11 +18,13 @@ class UserManager(BaseUserManager):
         user.save(using=self.db)
         return user
 
-    def create_user(self, username, email, name, last_name, password=None, is_staff=False, is_superuser=False, **extra_fields):
+    def create_user(self, username, email, name, last_name, password=None, is_staff=False, is_superuser=False,
+                    **extra_fields):
         return self._create_user(username, email, name, last_name, password, is_staff, is_superuser, **extra_fields)
 
     def create_superuser(self, username, email, name, last_name, password=None, **extra_fields):
         return self.create_user(username, email, name, last_name, password, True, True, **extra_fields)
+
 
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=255, unique=True)
