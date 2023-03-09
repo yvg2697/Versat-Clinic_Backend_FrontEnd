@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { DashboardRouter } from "../config/routers/DashboardRouter";
+import { DashboardRouter } from "./DashboardRouter";
 import SignIn from "../components/SignIn";
 import SignUpForm from "../components/SignUpForm";
 import { PrivateRouter } from "./PrivateRouter";
@@ -11,7 +11,7 @@ export const AppRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/login"
+          path="versat-clinic/login"
           element={
             <PublicRouter>
               <SignIn />
@@ -19,7 +19,7 @@ export const AppRouter = () => {
           }
         />
         <Route
-          path="/"
+          path="versat-clinic/"
           element={
             <PublicRouter>
               <SignIn />
@@ -28,7 +28,7 @@ export const AppRouter = () => {
         />
 
         <Route
-          path="/sign_up"
+          path="versat-clinic/sign_up"
           element={
             <PublicRouter>
               <SignUpForm />
@@ -37,7 +37,7 @@ export const AppRouter = () => {
         />
 
         <Route
-          path="/dashboard/*"
+          path="versat-clinic/dashboard/*"
           element={
             <PrivateRouter>
               <DashboardRouter />

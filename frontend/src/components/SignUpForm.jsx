@@ -48,7 +48,7 @@ export default function SignUpForm() {
       type: types.logout,
     };
     dispatch(action);
-    navigate("/login", {
+    navigate("/versat-clinic/login", {
       replace: true,
     });
   };
@@ -69,7 +69,7 @@ export default function SignUpForm() {
       type: types.logout,
     };
     dispatch(action);
-    navigate("/login", {
+    navigate("/versat-clinic/login", {
       replace: true,
     });
   };

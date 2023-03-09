@@ -9,15 +9,18 @@ import PeopleIcon from "@mui/icons-material/People";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import LayersIcon from "@mui/icons-material/Layers";
 import AssignmentIcon from "@mui/icons-material/Assignment";
+import { NavLink } from "react-router-dom";
 
 export const mainListItems = (
   <>
+   
     <ListItemButton>
       <ListItemIcon>
         <DashboardIcon />
-      </ListItemIcon>
+      </ListItemIcon>      
       <ListItemText primary="Dashboard" />
     </ListItemButton>
+    
     <ListItemButton>
       <ListItemIcon>
         <ShoppingCartIcon />

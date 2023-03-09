@@ -19,7 +19,8 @@ import { types } from "../utilities/types";
 import { AuthContext } from "../auth/AuthContext";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
+import {EnhancedTable} from "./UsersTable";
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
@@ -86,7 +87,7 @@ function DashboardContent() {
           type: types.logout,
         };
         dispatch(action);
-        navigate("/login", {
+        navigate("/versat-clinic/login", {
           replace: true,
         });
       }
@@ -125,7 +126,9 @@ function DashboardContent() {
             noWrap
             sx={{ flexGrow: 1 }}
           >
+            
             Dashboard
+           
           </Typography>
           <IconButton color="inherit" onClick={handleLogout}>
             <LogoutIcon />
@@ -162,6 +165,12 @@ function DashboardContent() {
       >
         <Toolbar />
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+        <Grid item xs={12}>
+              <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
+                {/* <Orders /> */}
+                <EnhancedTable></EnhancedTable>
+              </Paper>
+            </Grid>
           <Grid container spacing={3}>
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
@@ -173,6 +182,7 @@ function DashboardContent() {
                   height: 240,
                 }}
               >
+                
                 {/* <Chart /> */}
               </Paper>
             </Grid>
