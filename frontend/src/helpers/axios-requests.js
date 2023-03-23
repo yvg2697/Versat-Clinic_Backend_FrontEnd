@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const getUsers=(setWorkers)=>{
-    axios.get('http://localhost:8000/trabajador', {
+    axios.get('http://localhost:8000/versat-clinic/api/trabajador/', {
     responseType: 'json'
   })
     .then(function(res) {

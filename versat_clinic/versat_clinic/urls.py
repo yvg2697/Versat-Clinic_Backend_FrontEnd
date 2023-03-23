@@ -52,11 +52,12 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
     # path("", front, name="front"),
+    path('versat-clinic/api/trabajador/', include('apps.trabajador.api.urls')),
     re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),  # only test not production
     re_path(r"^versat-clinic.*$", TemplateView.as_view(template_name="base.html")),
     path('user/', include('apps.users.api.urls')),
     path('', Login.as_view(), name='Login'),
     path('logout/', Logout.as_view(), name='Logout'),
-    path('trabajador/', include('apps.trabajador.api.urls')),
+   
     path('paciente/', include('apps.paciente.api.urls')),
 ]

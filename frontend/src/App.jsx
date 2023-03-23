@@ -18,8 +18,10 @@ import { AuthContext } from "./auth/AuthContext";
 import { authReducer } from "./auth/authReducer";
 
 const init = () => {
+  let user=localStorage.getItem("user");
+  
   return JSON.parse(localStorage.getItem("user")) || { logged: false };
-};
+}
 
 export const App = () => {
   const [user, dispatch] = useReducer(authReducer, {}, init);
