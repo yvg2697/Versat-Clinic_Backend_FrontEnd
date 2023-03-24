@@ -2,9 +2,10 @@ from rest_framework import status, viewsets
 from rest_framework.response import Response
 
 from apps.paciente.api.serializer import PacienteSerializer
+from apps.users.authentication_mixin import Authentication
 
 
-class PacienteViewSet(viewsets.ModelViewSet):
+class PacienteViewSet(Authentication, viewsets.ModelViewSet):
     serializer_class = PacienteSerializer
     queryset = PacienteSerializer.Meta.model.objects.filter()
 

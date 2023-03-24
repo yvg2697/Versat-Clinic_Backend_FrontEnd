@@ -5,7 +5,7 @@ from apps.users.authentication_mixin import Authentication
 from apps.users.api.serializer import UserSerializer
 
 
-class UserViewSet(Authentication, viewsets.ModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = UserSerializer.Meta.model.objects.filter()
 
